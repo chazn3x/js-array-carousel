@@ -32,8 +32,6 @@ let background = document.querySelector(".background");
 background.innerHTML = `<img src="${items[0]}" alt="${title[0]} background">`;
 
 // creazione immagini grandi
-
-const previewContainer = document.querySelector(".image-container");
 // ciclo per inserire le immagini grandi
 for (let i = 0; i < items.length; i++) {
     let preview = `
@@ -46,13 +44,11 @@ for (let i = 0; i < items.length; i++) {
             <p>${text[i]}</p>
         </div>
     </div>`;
-    previewContainer.innerHTML += preview;
+    document.querySelector(".image-container").innerHTML += preview;
 }
 document.querySelector(".preview").className = "preview active";
 
 // creazione thumbnails
-
-const carouselContainer = document.querySelector(".carousel");
 // ciclo per inserire le thumbnails
 for (let i = 0; i < items.length; i++) {
     let thumbnail = `
@@ -61,19 +57,29 @@ for (let i = 0; i < items.length; i++) {
         <img src="${items[i]}" alt="${title[i]} thumbnail">
         <h3>${title[i]}</h3>
     </div>`;
-    carouselContainer.innerHTML += thumbnail;
+    document.querySelector(".carousel").innerHTML += thumbnail;
 }
 document.querySelector(".thumbnail").className = "thumbnail active";
- 
+
+// creazione pallini
+// ciclo per inserire i pallini
+for (let i = 0; i < items.length; i++) {
+    let dot = `<div class="dot"></div>`;
+    document.querySelector(".dots").innerHTML += dot;
+}
+document.querySelector(".dot").className = "dot active";
+
 // pulsante next
 
 let carousel = document.getElementsByClassName("thumbnail"); //array con le thumbnails
 let preview = document.getElementsByClassName("preview"); //array con le preview grandi
+let dots = document.getElementsByClassName("dot");
 let counter = 0; //contatore per thumbnails e preview
 const next = document.querySelector(".next");
 next.addEventListener("click", function() {
     carousel[counter].className = "thumbnail";
     preview[counter].className = "preview";
+    dots[counter].className = "dot"
     if (counter + 1 < carousel.length) { //condizione per andare avanti
         counter ++;
     } else { //condizione per rendere il ciclo infinito
@@ -81,15 +87,17 @@ next.addEventListener("click", function() {
     }
     carousel[counter].className = "thumbnail active";
     preview[counter].className = "preview active";
+    dots[counter].className = "dot active"
     background.innerHTML = `<img src="${items[counter]}" alt="${title[counter]} background">`;
 });
 
 // pulsante previous
 
-const prev = document.querySelector(".prev");
-prev.addEventListener("click", function() {
+const previous = document.querySelector(".previous");
+previous.addEventListener("click", function() {
     carousel[counter].className = "thumbnail";
     preview[counter].className = "preview"
+    dots[counter].className = "dot"
     if (counter > 0) { //condizione per andare indietro
         counter --;
     } else { //condizione per rendere il ciclo infinito
@@ -97,18 +105,33 @@ prev.addEventListener("click", function() {
     }
     carousel[counter].className = "thumbnail active";
     preview[counter].className = "preview active";
+    dots[counter].className = "dot active"
     background.innerHTML = `<img src="${items[counter]}" alt="${title[counter]} background">`;
 });
 
-// click sulle immagini
+// click sulle immagini e sui pallini
 
 for (let i = 0; i < carousel.length; i++) {
+    // click sulle immagini
     carousel[i].addEventListener("click", function() {
         carousel[counter].className = "thumbnail";
         preview[counter].className = "preview"
+        dots[counter].className = "dot"
         counter = i;
         carousel[counter].className = "thumbnail active";
         preview[counter].className = "preview active";
+        dots[counter].className = "dot active"
+        background.innerHTML = `<img src="${items[counter]}" alt="${title[counter]} background">`;
+    });
+    // click sui pallini
+    dots[i].addEventListener("click", function() {
+        carousel[counter].className = "thumbnail";
+        preview[counter].className = "preview"
+        dots[counter].className = "dot"
+        counter = i;
+        carousel[counter].className = "thumbnail active";
+        preview[counter].className = "preview active";
+        dots[counter].className = "dot active"
         background.innerHTML = `<img src="${items[counter]}" alt="${title[counter]} background">`;
     });
 }
