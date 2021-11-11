@@ -202,7 +202,6 @@ h1 {
 
 
 
-
 @media screen and (max-width: 576px) {
     h1 {
         padding-top: 30px;
@@ -242,5 +241,17 @@ h1 {
     .carousel .active {
         border: 2px solid lightgrey;
         height: 100%;
+    }
+}
+
+@media screen and (max-height: 560px) {
+    h1 {
+        padding-top: 20px;
+    }
+    .image-container {
+        height: 70%;
+    }
+    .carousel-container {
+        height: 30%;
     }
 }
