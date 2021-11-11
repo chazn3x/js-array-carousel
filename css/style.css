@@ -1,0 +1,67 @@
+/* commons */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body {
+    height: 100vh;
+}
+
+/* contenitori */
+.container {
+    width: 70%;
+    height: 60%;
+    background: lightblue;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+.image-container {
+    background: lightcoral;
+    height: 100%;
+    width: 80%;
+}
+.carousel-container {
+    background: lightgoldenrodyellow;
+    height: 100%;
+    width: 20%;
+}
+
+/* immagine grande */
+.image-big {
+    position: relative;
+    height: 100%;
+}
+.image-big img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.image-big .layover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0) 60%, rgba(0,0,0,0.9));
+}
+.image-big .description {
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    width: 80%;
+    text-align: right;
+    color: white;
+}
+.description h2 {
+    font-size: 2.5em;
+    font-weight: 400;
+}
+.description p {
+    font-weight: 100;
+    padding-top: 10px;
+    line-height: 25px;
+}
