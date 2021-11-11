@@ -199,3 +199,48 @@ h1 {
 .carousel .active h3 {
     display: none;
 }
+
+
+
+
+@media screen and (max-width: 576px) {
+    h1 {
+        padding-top: 30px;
+    }
+    .preview .layover {
+        background: rgba(0,0,0,0.6);
+    }
+    .previous,
+    .next {
+        top: 5%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .image-container,
+    .carousel-container {
+        width: 100%;
+    }
+    .image-container {
+        height: 80%;
+    }
+    .carousel-container {
+        height: 20%;
+    }
+    .carousel {
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+    .carousel .thumbnail {
+        min-width: 150px;
+        height: 100%;
+    }
+    .carousel .active {
+        border: 2px solid lightgrey;
+        height: 100%;
+    }
+}
