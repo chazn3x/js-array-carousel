@@ -29,6 +29,7 @@ body {
     background: lightgoldenrodyellow;
     height: 100%;
     width: 20%;
+    position: relative;
 }
 
 /* immagine grande */
@@ -64,4 +65,45 @@ body {
     font-weight: 100;
     padding-top: 10px;
     line-height: 25px;
+}
+
+/* carosello */
+.carousel {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #000;
+}
+.carousel .thumbnail {
+    width: 100%;
+    height: calc(100% / 5);
+    opacity: .4;
+}
+.carousel .thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.carousel .active {
+    opacity: 1;
+    border: 2px solid lightgrey;
+}
+.prev,
+.next {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: lightgrey;
+    font-size: 2em;
+    background: rgba(0,0,0,0.6);
+    border-radius: 50%;
+    line-height: 40px;
+    text-align: center;
+    margin: 20px 0;
+    cursor: pointer;
+}
+.next {
+    bottom: 0;
 }
