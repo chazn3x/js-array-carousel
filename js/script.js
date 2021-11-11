@@ -23,22 +23,34 @@ const text = [
 ]
 
 const previewContainer = document.querySelector(".image-container");
-// ciclo per inserire le immagini nel container
+// ciclo per inserire le immagini grandi
 for (let i = 0; i < items.length; i++) {
     let preview = `
     <!-- immagine -->
-            <div class="preview">
-                <img src="${items[i]}" alt="Svezia">
-                <div class="layover"></div>
-                <div class="description">
-                    <h2>${title[i]}</h2>
-                    <p>${text[i]}</p>
-                </div>
-            </div>`;
+    <div class="preview">
+        <img src="${items[i]}" alt="${title[i]}">
+        <div class="layover"></div>
+        <div class="description">
+            <h2>${title[i]}</h2>
+            <p>${text[i]}</p>
+        </div>
+    </div>`;
     previewContainer.innerHTML += preview;
 }
 document.querySelector(".preview").className = "preview active";
 
+const carouselContainer = document.querySelector(".carousel");
+// ciclo per inserire le thumbnails
+for (let i = 0; i < items.length; i++) {
+    let thumbnail = `
+    <!-- thumbnail -->
+    <div class="thumbnail">
+        <img src="${items[i]}" alt="${title[i]} thumbnail">
+    </div>`;
+    carouselContainer.innerHTML += thumbnail;
+}
+document.querySelector(".thumbnail").className = "thumbnail active";
+ 
 
 let carousel = document.getElementsByClassName("thumbnail"); //array con le thumbnails
 let preview = document.getElementsByClassName("preview"); //array con le preview grandi

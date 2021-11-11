@@ -108,6 +108,9 @@ body {
     margin: 20px 0;
     cursor: pointer;
 }
+.prev {
+    top: 0;
+}
 .next {
     bottom: 0;
 }
