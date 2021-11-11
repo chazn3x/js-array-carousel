@@ -38,3 +38,41 @@ for (let i = 0; i < items.length; i++) {
     previewContainer.innerHTML += preview;
 }
 document.querySelector(".preview").className = "preview active";
+
+
+let carousel = document.getElementsByClassName("thumbnail"); //array con le thumbnails
+let preview = document.getElementsByClassName("preview"); //array con le preview grandi
+let counter = 0; //contatore per thumbnails e preview
+const next = document.querySelector(".next");
+next.addEventListener("click", function() {
+    if (counter + 1 < carousel.length) { //condizione per andare avanti
+        carousel[counter].className = "thumbnail";
+        preview[counter].className = "preview"
+        counter ++;
+        carousel[counter].className = "thumbnail active";
+        preview[counter].className = "preview active"
+    } else { //condizione per rendere il ciclo infinito
+        carousel[counter].className = "thumbnail";
+        preview[counter].className = "preview"
+        counter = 0;
+        carousel[counter].className = "thumbnail active";
+        preview[counter].className = "preview active"
+    }
+});
+
+const prev = document.querySelector(".prev");
+prev.addEventListener("click", function() {
+    if (counter > 0) { //condizione per andare indietro
+        carousel[counter].className = "thumbnail";
+        preview[counter].className = "preview"
+        counter --;
+        carousel[counter].className = "thumbnail active";
+        preview[counter].className = "preview active"
+    } else { //condizione per rendere il ciclo infinito
+        carousel[counter].className = "thumbnail";
+        preview[counter].className = "preview"
+        counter = carousel.length - 1;
+        carousel[counter].className = "thumbnail active";
+        preview[counter].className = "preview active"
+    }
+});
