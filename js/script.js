@@ -28,12 +28,14 @@ const text = [
     "Le Hawaii, uno stato degli USA, sono un arcipelago vulcanico isolato nel Pacifico centrale.",
 ]
 
+// sfondo
 let background = document.querySelector(".background");
 background.innerHTML = `<img src="${items[0]}" alt="${title[0]} background">`;
 
-// creazione immagini grandi
-// ciclo per inserire le immagini grandi
+// ciclo per inserire gli elementi nell'HTML
 for (let i = 0; i < items.length; i++) {
+
+    // creazione immagini grandi
     let preview = `
     <!-- immagine -->
     <div class="preview">
@@ -45,12 +47,8 @@ for (let i = 0; i < items.length; i++) {
         </div>
     </div>`;
     document.querySelector(".image-container").innerHTML += preview;
-}
-document.querySelector(".preview").className = "preview active";
 
-// creazione thumbnails
-// ciclo per inserire le thumbnails
-for (let i = 0; i < items.length; i++) {
+    // creazione thumbnails
     let thumbnail = `
     <!-- thumbnail -->
     <div class="thumbnail">
@@ -58,23 +56,22 @@ for (let i = 0; i < items.length; i++) {
         <h3>${title[i]}</h3>
     </div>`;
     document.querySelector(".carousel").innerHTML += thumbnail;
-}
-document.querySelector(".thumbnail").className = "thumbnail active";
 
-// creazione pallini
-// ciclo per inserire i pallini
-for (let i = 0; i < items.length; i++) {
+    // creazione pallini
     let dot = `<div class="dot"></div>`;
     document.querySelector(".dots").innerHTML += dot;
 }
+document.querySelector(".preview").className = "preview active";
+document.querySelector(".thumbnail").className = "thumbnail active";
 document.querySelector(".dot").className = "dot active";
-
-// pulsante next
 
 let carousel = document.getElementsByClassName("thumbnail"); //array con le thumbnails
 let preview = document.getElementsByClassName("preview"); //array con le preview grandi
-let dots = document.getElementsByClassName("dot");
-let counter = 0; //contatore per thumbnails e preview
+let dots = document.getElementsByClassName("dot"); //array con i pallini
+let counter = 0; //contatore per thumbnails, preview e pallini
+
+// pulsante next
+
 const next = document.querySelector(".next");
 next.addEventListener("click", function() {
     carousel[counter].className = "thumbnail";
