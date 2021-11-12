@@ -151,7 +151,7 @@ h1 {
 }
 .carousel .thumbnail {
     width: 100%;
-    min-height: 120px;
+    height: 100px;
     transition: .3s;
     position: relative;
     cursor: pointer;
